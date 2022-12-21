@@ -15,6 +15,14 @@ public class PlayerControl : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        print(v);
+        Vector3 dir = new Vector3(h, v, 0);
+        GetComponent<Rigidbody2D>().velocity = dir * 5;
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("WALL"))
+        {
+            GetComponent<SpriteRenderer>().color = collision.collider.GetComponent<SpriteRenderer>().color;
+        }
     }
 }
