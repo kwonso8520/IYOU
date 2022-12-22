@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
@@ -91,5 +90,21 @@ public class PlayerControl : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         speed = 5;
+    }
+    public void Left()
+    {
+        transform.position += new Vector3(-1, 0, 0) * speed * 0.1f;
+    }
+    public void Right()
+    {
+        transform.position += new Vector3(1, 0, 0) * speed * 0.1f;
+    }
+    public void Up()
+    {
+        transform.position += new Vector3(0, 1, 0) * speed * 0.1f;
+    }
+    public void Down()
+    {
+        transform.position += new Vector3(0, -1, 0) * speed * 0.1f;
     }
 }
